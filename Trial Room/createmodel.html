@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<title>Mirror</title>
+
+<head>
+    <script type='text/javascript'>
+        function preview_image(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('output_image');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+        function preview_image_new(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('output_image_new');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+        function result() {
+            console.log("success");
+        }
+
+        function DelayRedirect() {
+            var seconds = 10;
+            var dvCountDown = document.getElementById("dvCountDown");
+            var lblCount = document.getElementById("lblCount");
+            dvCountDown.style.display = "block";
+            lblCount.innerHTML = seconds;
+            setInterval(function () {
+                seconds--;
+                lblCount.innerHTML = seconds;
+                if (seconds == 0) {
+                    dvCountDown.style.display = "none";
+                    window.location = "modelresult.html";
+                }
+            }, 1000);
+        }
+    </script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/jumbotron-narrow.css" rel="stylesheet">
+
+    <link href="../static/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <img align="top" src="logo.png" width="100" height="200" alt="Myntra logo" class="img-responsive" />
+    <form onsubmit="result()">
+        <label for="username">Username:</label><br>
+        <input type="email" id="uname" name="uname">
+        <br>
+        <label for="password">Password(for authentication purpose):</label><br>
+        <input type="text" id="pass" name="pass">
+        <br>
+        <label for="gender">Select Your Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">prefer not to say</label>
+        <br>
+        <br>
+        <label for="upload">Upload Your Image:</label><br>
+        <input type="file" name="image" accept="image/*" onchange="preview_image_new(event)">
+        <img id="output_image_new" />
+        <br> </br>
+        <img id="output_image" />
+        <input type="checkbox" name="checkbox" value="check" id="agree" />
+        <p style="color:rgb(3, 21, 187)">I have read and agree to the Terms and Conditions & Privacy Policy</p>
+    </form>
+    
+        <input type="button" value="Generate Model" onclick="DelayRedirect()" />
+        <br />
+        <br />
+        <div id="dvCountDown" style="display:none">
+            Your Model will Generate in <span id="lblCount"></span>&nbsp;seconds.
+        </div>
+
+</body>
+
+</html>
