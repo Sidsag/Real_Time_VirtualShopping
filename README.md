@@ -16,7 +16,8 @@ ___
 
 >2.**Feature Extraction**[where User Can Extract/ask for similar pattern under their specification]
 
->3.**Face On Trial** where user can take trial using their camera & cloth they select
+>3.**Face On Trial** where user can take trial using their camera & cloth they select[it is an augmented reality dressing room where the image of the user is captured by 
+the camera and given as an input]
 
 ---
 ### Stage 2:
@@ -39,4 +40,10 @@ _[Face on Trail](http://alereimondo.no-ip.org/OpenCV/uploads/37/CameraReadyPaper
 _[PIFuHD Paper](https://arxiv.org/pdf/2004.00452.pdf)
 
 _[VTON Model](https://minar09.github.io/c3dvton/cvprw20_3d.pdf)
+
+************
+#Thanks!!
+*************
+
+
 
